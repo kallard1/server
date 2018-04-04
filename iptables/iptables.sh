@@ -73,10 +73,6 @@ iptables -t filter -A INPUT -p tcp --dport $SSH_PORT -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport $SSH_PORT -j ACCEPT
 iptables -I INPUT -p tcp --dport 1022 -j ACCEPT
 
-# SONARQUBE
-# iptables -t filter -A INPUT -p tcp --dport 9000 -j ACCEPT
-# iptables -t filter -A OUTPUT -p tcp --dport 9000 -j ACCEPT
-
 # SENTRY
 iptables -t filter -A INPUT -p tcp --dport 9050 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport 9050 -j ACCEPT
