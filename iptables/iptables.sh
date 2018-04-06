@@ -25,6 +25,11 @@ iptables -t filter -A INPUT -p udp --dport 53 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
 iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
 
+# FORWARD
+iptables -F FORWARD
+iptables -A FORWARD -j ACCEPT
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o ens160 -j MASQUERADE
+
 # GIT
 iptables -t filter -A INPUT -p tcp --dport 9418 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport 9418 -j ACCEPT
